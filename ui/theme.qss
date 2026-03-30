@@ -1,0 +1,259 @@
+/* === Global Font === */
+* {
+    font-family: "Segoe UI", "Roboto", sans-serif;
+    font-size: 10pt;
+    color: #1E293B;
+}
+
+/* === Base Window === */
+QMainWindow, QWidget {
+    background: #F9FAFB;
+}
+
+/* === Menu Bar === */
+QMenuBar {
+    background: #F9FAFB;
+    border-bottom: 1px solid #CBD5E1;
+}
+QMenuBar::item:selected {
+    background: #EEF2FF;
+    color: #2563EB;
+}
+QMenu {
+    background: #FFFFFF;
+    border: 1px solid #CBD5E1;
+}
+QMenu::item:selected {
+    background: #DBEAFE;
+    color: #1E293B;
+}
+
+/* === Tabs === */
+QTabWidget::pane {
+    border-top: 1px solid #CBD5E1;
+    background: #F9FAFB;
+}
+QTabBar::tab {
+    background: #FFFFFF;
+    border: 1px solid #CBD5E1;
+    border-bottom: none;
+    padding: 8px 18px;
+    margin: 2px 1px 0px 1px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    font-size: 10pt;
+}
+QTabBar::tab:selected {
+    font-weight: bold;
+    background: #EEF2FF;
+    border-color: #2563EB;
+    border-bottom: 2px solid #2563EB;
+    color: #2563EB;
+}
+QTabBar::tab:hover {
+    background: #EEF2FF;
+    border-color: #2563EB;
+}
+
+/* === Tree Widget (Sidebar) === */
+QTreeWidget {
+    background: #FFFFFF;
+    border: 1px solid #CBD5E1;
+    outline: none;
+    alternate-background-color: #F3F4F6;
+}
+QTreeWidget::item {
+    height: 26px;
+    padding: 3px 10px;
+}
+QTreeWidget::item:hover {
+    background: #EEF2FF;
+}
+QTreeWidget::item:selected {
+    background: #DBEAFE;
+    color: #1E293B;
+}
+QTreeWidget::item:has-children {
+    font-weight: 600;
+    font-size: 10pt;
+}
+
+/* === Labels === */
+QLabel {
+    color: #64748B;
+    background: transparent;
+}
+QLabel#sectionTitle {
+    color: #1E293B;
+    font-weight: bold;
+    font-size: 11pt;
+}
+QLabel#sidebarHeader {
+    color: #1E293B;
+    font-weight: bold;
+    font-size: 11pt;
+    padding: 4px 0px;
+}
+
+/* === Buttons === */
+QPushButton {
+    background: #FFFFFF;
+    border: 1px solid #CBD5E1;
+    border-radius: 6px;
+    padding: 7px 16px;
+}
+QPushButton:hover {
+    border-color: #2563EB;
+    background: #EEF2FF;
+    color: #2563EB;
+}
+QPushButton:pressed {
+    background: #2563EB;
+    border-color: #2563EB;
+    color: #FFFFFF;
+}
+QPushButton:disabled {
+    background: #F3F4F6;
+    color: #9CA3AF;
+    border-color: #E2E8F0;
+}
+QPushButton#generateBtn {
+    background: #2563EB;
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 10pt;
+    border-radius: 6px;
+    padding: 8px 20px;
+    border: none;
+}
+QPushButton#generateBtn:hover {
+    background: #1D4ED8;
+    color: #FFFFFF;
+}
+QPushButton#generateBtn:pressed {
+    background: #1E40AF;
+}
+QPushButton#generateBtn:disabled {
+    background: #93C5FD;
+    color: #FFFFFF;
+}
+
+/* === LineEdit === */
+QLineEdit {
+    background: #FFFFFF;
+    border: 1px solid #CBD5E1;
+    border-radius: 4px;
+    padding: 5px 8px;
+}
+QLineEdit:focus {
+    border-color: #2563EB;
+}
+
+/* === Status Bar === */
+QStatusBar {
+    background: #F3F4F6;
+    color: #64748B;
+    border-top: 1px solid #CBD5E1;
+}
+QStatusBar QLabel {
+    color: #64748B;
+}
+
+/* === Progress Bar === */
+QProgressBar {
+    background: #E2E8F0;
+    border: none;
+    border-radius: 4px;
+    height: 8px;
+    text-align: center;
+    color: transparent;
+}
+QProgressBar::chunk {
+    background: #22C55E;
+    border-radius: 4px;
+}
+
+/* === Table Widget === */
+QTableWidget {
+    background: #FFFFFF;
+    border: 1px solid #CBD5E1;
+    gridline-color: #E2E8F0;
+    selection-background-color: #DBEAFE;
+    selection-color: #1E293B;
+    alternate-background-color: #F8FAFC;
+}
+QTableWidget::item {
+    padding: 5px 8px;
+    border: none;
+}
+QTableWidget::item:selected {
+    background: #DBEAFE;
+    color: #1E293B;
+}
+QHeaderView::section {
+    background: #F1F5F9;
+    border: none;
+    border-right: 1px solid #CBD5E1;
+    border-bottom: 1px solid #CBD5E1;
+    padding: 6px 10px;
+    font-weight: 600;
+    color: #475569;
+    font-size: 9pt;
+}
+
+/* === Text Edit (DBC / Code View) === */
+QTextEdit {
+    background: #1E293B;
+    color: #E2E8F0;
+    border: 1px solid #CBD5E1;
+    border-radius: 4px;
+    font-family: "Consolas", "Courier New", monospace;
+    font-size: 10pt;
+    padding: 8px;
+}
+
+/* === Splitter === */
+QSplitter::handle {
+    background: #CBD5E1;
+    width: 2px;
+}
+
+/* === Scroll Bars === */
+QScrollBar:vertical {
+    background: #F1F5F9;
+    width: 10px;
+    border-radius: 5px;
+}
+QScrollBar::handle:vertical {
+    background: #CBD5E1;
+    border-radius: 5px;
+    min-height: 20px;
+}
+QScrollBar::handle:vertical:hover {
+    background: #94A3B8;
+}
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+    height: 0px;
+}
+QScrollBar:horizontal {
+    background: #F1F5F9;
+    height: 10px;
+    border-radius: 5px;
+}
+QScrollBar::handle:horizontal {
+    background: #CBD5E1;
+    border-radius: 5px;
+}
+QScrollBar::handle:horizontal:hover {
+    background: #94A3B8;
+}
+QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal {
+    width: 0px;
+}
+
+/* === Frame / Panel === */
+QFrame#panelCard {
+    background: #FFFFFF;
+    border: 1px solid #CBD5E1;
+    border-radius: 8px;
+}

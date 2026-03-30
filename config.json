@@ -1,0 +1,6 @@
+{
+    "excel_file": "input/CAN_Matrix.xlsx",
+    "dbc_output": "output/dbc/generated.dbc",
+    "c_output_dir": "output/c_code",
+    "bus_name": "CAN1"
+}

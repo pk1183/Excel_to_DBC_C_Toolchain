@@ -1,0 +1,72 @@
+VERSION ""
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: INV VCU
+
+BO_ 528 INV_DriveCmd: 8 VCU
+ SG_ TorqueReq : 0|16@1- (0.1,0) [-200|200] "Nm"  INV
+ SG_ SpeedReq : 16|16@1+ (1,-5000) [-5000|10000] "RPM"  INV
+ SG_ InverterEnable : 32|1@1+ (1,0) [0|1] ""  INV
+ SG_ ControlMode : 33|3@1+ (1,0) [0|7] ""  INV
+
+BO_ 416 INV_Feedback: 8 INV
+ SG_ ActualTorque : 7|16@0- (0.1,0) [-200|200] "Nm"  VCU
+ SG_ ActualSpeed : 23|16@0+ (1,-5000) [-5000|10000] "RPM"  VCU
+ SG_ MotorTemp : 39|8@0+ (1,-40) [-40|150] "C"  VCU
+ SG_ FaultCode : 47|8@0+ (1,0) [0|255] ""  VCU
+
+BO_ 768 INV_MultiData: 8 INV
+ SG_ Mux_Switch M : 0|4@1+ (1,0) [0|15] ""  VCU
+ SG_ PhaseA_Current m0 : 8|16@1- (0.1,0) [-500|500] "A"  VCU
+ SG_ PhaseB_Current m1 : 8|16@1- (0.1,0) [-500|500] "A"  VCU
+ SG_ PhaseC_Current m2 : 8|16@1- (0.1,0) [-500|500] "A"  VCU
+
+CM_ BU_ INV "Motor Inverter / Controller Node";
+CM_ BU_ VCU "Vehicle Control Unit Node";
+CM_ BO_ 768 "Multiplexed message containing 3-phase AC currents";
+CM_ SG_ 528 TorqueReq "Requested torque to the motor";
+
+BA_DEF_ BO_  "GenMsgCycleTime" INT 0 65535;
+BA_DEF_ BO_  "GenMsgSendType" ENUM  "Cyclic","Event","CyclicIfActive";
+BA_DEF_DEF_  "GenMsgCycleTime" 0;
+BA_DEF_DEF_  "GenMsgSendType" "Cyclic";
+
+BA_ "GenMsgCycleTime" BO_ 528 10;
+BA_ "GenMsgCycleTime" BO_ 416 10;
+BA_ "GenMsgCycleTime" BO_ 768 100;
+BA_ "GenMsgSendType" BO_ 528 0;
+
+VAL_ 528 InverterEnable 0 "Disable" 1 "Enable" ;
+VAL_ 528 ControlMode 0 "TorqueControl" 1 "SpeedControl" 2 "VoltageControl" ;
+VAL_ 416 FaultCode 0 "NoFault" 1 "OverCurrent" 2 "OverTemp" 3 "ResolverError" ;
